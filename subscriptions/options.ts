@@ -10,11 +10,3 @@ export const optionsSubscriptions = api(
 );
 
 
-export const optionsSubscriptionsUpdate = api(
-  {
-    method: "OPTIONS",
-    path: "/api/v1/admin/subscriptions/:id",
-    auth: false,
-  },
-  async () => ({})
-);
