@@ -1,22 +1,7 @@
-import { api } from "encore.dev/api";
-import { Query } from "encore.dev/api";
-import db from "../db";
-
-interface ListSubscriptionsRequest {
-  status?: Query<string>;
-}
-
-interface Subscription {
-  id: string;
-  merchantId: string;
-  merchantName: string;
-  plan: string;
-  startDate: Date;
-  endDate: Date | null;
-  status: string;
-  graceDays: number;
-  enforcementMode: string;
-  createdAt: Date;
+// Internal subscriptions list logic for gateway
+export async function list() {
+  // TODO: Implement actual subscriptions listing logic or proxy to DB/service
+  return [];
 }
 
 interface ListSubscriptionsResponse {

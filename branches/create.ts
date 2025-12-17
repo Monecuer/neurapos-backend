@@ -1,23 +1,8 @@
-import { api } from "encore.dev/api";
-import db from "../db";
-import { createAuditLog } from "../audit/create";
-
-interface CreateBranchRequest {
-  merchantId: string;
-  name: string;
-  address?: string;
-  timezone?: string;
+// Internal branches create logic for gateway
+export async function create(req: any, ctx: any) {
+  // TODO: Implement actual branch creation logic
+  return { success: true };
 }
-
-interface Branch {
-  id: string;
-  merchantId: string;
-  name: string;
-  address: string | null;
-  timezone: string;
-  isActive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 // Creates a new branch for a merchant.

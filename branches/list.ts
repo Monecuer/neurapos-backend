@@ -1,23 +1,8 @@
-import { api } from "encore.dev/api";
-import { Query } from "encore.dev/api";
-import db from "../db";
-
-interface ListBranchesRequest {
-  merchantId?: Query<string>;
+// Internal branches list logic for gateway
+export async function list() {
+  // TODO: Implement actual branches listing logic or proxy to DB/service
+  return [];
 }
-
-interface Branch {
-  id: string;
-  merchantId: string;
-  name: string;
-  address: string | null;
-  timezone: string;
-  isActive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-interface ListBranchesResponse {
   branches: Branch[];
 }
 

@@ -1,21 +1,8 @@
-import { api } from "encore.dev/api";
-import { Query } from "encore.dev/api";
-import db from "../db";
 
-interface ListUsersRequest {
-  merchantId?: Query<string>;
-  branchId?: Query<string>;
-}
-
-interface User {
-  id: string;
-  merchantId: string;
-  branchId: string | null;
-  email: string;
-  fullName: string;
-  role: string;
-  isActive: boolean;
-  createdAt: Date;
+// Internal users list logic for gateway
+export async function list() {
+  // TODO: Implement actual user listing logic or proxy to DB/service
+  return [];
 }
 
 interface ListUsersResponse {

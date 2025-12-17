@@ -1,23 +1,8 @@
-import { api } from "encore.dev/api";
-import db from "../db";
-import { createAuditLog } from "../audit/create";
-
-interface CreateWhiteLabelRequest {
-  name: string;
-  brandingMeta: {
-    logo?: string;
-    primaryColor?: string;
-    secondaryColor?: string;
-    appName?: string;
-  };
-  allowedMerchants?: string[];
-  deviceLimits?: Record<string, any>;
+// Internal whitelabel create logic for gateway
+export async function create(req: any, ctx: any) {
+  // TODO: Implement actual whitelabel creation logic
+  return { success: true };
 }
-
-interface WhiteLabelPartner {
-  id: string;
-  name: string;
-  brandingMeta: Record<string, any>;
   enabled: boolean;
   allowedMerchants: string[];
   deviceLimits: Record<string, any>;

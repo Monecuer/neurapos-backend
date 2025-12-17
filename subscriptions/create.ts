@@ -1,23 +1,8 @@
-import { api } from "encore.dev/api";
-import db from "../db";
-import { createAuditLog } from "../audit/create";
-
-interface CreateSubscriptionRequest {
-  merchantId: string;
-  plan: string;
-  startDate: Date;
-  endDate?: Date;
-  graceDays?: number;
-  enforcementMode?: string;
+// Internal subscriptions create logic for gateway
+export async function create(req: any, ctx: any) {
+  // TODO: Implement actual subscription creation logic
+  return { success: true };
 }
-
-interface Subscription {
-  id: string;
-  merchantId: string;
-  plan: string;
-  startDate: Date;
-  endDate: Date | null;
-  status: string;
   graceDays: number;
   enforcementMode: string;
   createdAt: Date;

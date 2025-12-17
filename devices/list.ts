@@ -1,21 +1,7 @@
-import { api } from "encore.dev/api";
-import { Query } from "encore.dev/api";
-import db from "../db";
-
-interface ListDevicesRequest {
-  merchantId?: Query<string>;
-  branchId?: Query<string>;
-}
-
-interface Device {
-  id: string;
-  merchantId: string;
-  branchId: string;
-  deviceFingerprint: string;
-  deviceName: string;
-  status: string;
-  lastSeen: Date | null;
-  createdAt: Date;
+// Internal devices list logic for gateway
+export async function list() {
+  // TODO: Implement actual devices listing logic or proxy to DB/service
+  return [];
 }
 
 interface ListDevicesResponse {

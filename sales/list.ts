@@ -1,23 +1,8 @@
-import { api } from "encore.dev/api";
-import { Query } from "encore.dev/api";
-import db from "../db";
-
-interface ListSalesRequest {
-  merchantId?: Query<string>;
-  branchId?: Query<string>;
-  limit?: Query<number>;
-  offset?: Query<number>;
+// Internal sales list logic for gateway
+export async function list() {
+  // TODO: Implement actual sales listing logic or proxy to DB/service
+  return [];
 }
-
-interface Sale {
-  id: string;
-  merchantId: string;
-  branchId: string;
-  deviceId: string;
-  cashierUserId: string;
-  totalAmount: number;
-  paymentType: string;
-  syncStatus: string;
   createdAt: Date;
 }
 
