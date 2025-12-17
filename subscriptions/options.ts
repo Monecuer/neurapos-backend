@@ -9,6 +9,7 @@ export const optionsSubscriptions = api(
   async () => ({})
 );
 
+
 export const optionsSubscriptionsUpdate = api(
   {
     method: "OPTIONS",
