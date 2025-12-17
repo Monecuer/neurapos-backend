@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as sales from "../sales";
+import * as sales from "../sales/create";
 
-export const createSale = api(
-  { method: "POST", path: "/api/v1/sales" },
-  async (req, ctx) => sales.create(req, ctx)
-);
-// Add more sales endpoints as needed
+// Proxy handler for creating a sale
+export async function createSale(req: any, res: any) {
+  const result = await sales.create(req.body, {});
+  res.json(result);
+}

@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as branches from "../branches";
+import * as branches from "../branches/create";
 
-export const createBranch = api(
-  { method: "POST", path: "/api/v1/branches" },
-  async (req, ctx) => branches.create(req, ctx)
-);
-// Add more branch endpoints as needed
+// Proxy handler for creating a branch
+export async function createBranch(req: any, res: any) {
+  const result = await branches.create(req.body, {});
+  res.json(result);
+}

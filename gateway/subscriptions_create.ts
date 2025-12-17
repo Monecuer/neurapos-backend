@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as subscriptions from "../subscriptions";
+import * as subscriptions from "../subscriptions/create";
 
-export const createSubscription = api(
-  { method: "POST", path: "/api/v1/subscriptions" },
-  async (req, ctx) => subscriptions.create(req, ctx)
-);
-// Add more subscription endpoints as needed
+// Proxy handler for creating a subscription
+export async function createSubscription(req: any, res: any) {
+  const result = await subscriptions.create(req.body, {});
+  res.json(result);
+}

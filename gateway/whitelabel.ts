@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as whitelabel from "../whitelabel";
+import * as whitelabel from "../whitelabel/list";
 
-export const listWhiteLabel = api(
-  { method: "GET", path: "/api/v1/whitelabel" },
-  async () => whitelabel.list()
-);
-// Add more whitelabel endpoints as needed
+// Proxy handler for listing white-label partners
+export async function listWhiteLabel(req: any, res: any) {
+  const result = await whitelabel.list();
+  res.json(result);
+}
