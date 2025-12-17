@@ -1,3 +1,6 @@
 import { Service } from "encore.dev/service";
+import { cors } from "../cors";
 
-export default new Service("whitelabel");
+export default new Service("whitelabel", {
+	middlewares: [cors],
+});

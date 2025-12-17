@@ -1,3 +1,6 @@
 import { Service } from "encore.dev/service";
+import { cors } from "../cors";
 
-export default new Service("features");
+export default new Service("features", {
+	middlewares: [cors],
+});
