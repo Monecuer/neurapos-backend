@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as auth from "../auth";
+import * as auth from "../auth/pin_login";
 
-export const pinLogin = api(
-  { method: "POST", path: "/api/v1/auth/pin-login" },
-  async (req, ctx) => auth.pin_login(req, ctx)
-);
-// Add more auth endpoints as needed
+// Proxy handler for PIN login
+export async function pinLogin(req: any, res: any) {
+  const result = await auth.pin_login(req.body, {});
+  res.json(result);
+}
