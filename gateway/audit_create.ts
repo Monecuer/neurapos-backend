@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as audit from "../audit";
+import * as audit from "../audit/create";
 
-export const createAudit = api(
-  { method: "POST", path: "/api/v1/audit" },
-  async (req, ctx) => audit.create(req, ctx)
-);
-// Add more audit endpoints as needed
+// Proxy handler for creating an audit log
+export async function createAudit(req: any, res: any) {
+  const result = await audit.create(req.body, {});
+  res.json(result);
+}

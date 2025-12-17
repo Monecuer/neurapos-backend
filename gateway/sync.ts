@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as sync from "../sync";
+import * as sync from "../sync/sales";
 
-export const syncSales = api(
-  { method: "POST", path: "/api/v1/sync/sales" },
-  async (req, ctx) => sync.sales(req, ctx)
-);
-// Add more sync endpoints as needed
+// Proxy handler for syncing sales
+export async function syncSales(req: any, res: any) {
+  const result = await sync.sales(req.body, {});
+  res.json(result);
+}

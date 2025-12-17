@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as inventory from "../inventory";
+import * as inventory from "../inventory/list";
 
-export const listInventory = api(
-  { method: "GET", path: "/api/v1/inventory" },
-  async () => inventory.list()
-);
-// Add more inventory endpoints as needed
+// Proxy handler for listing inventory
+export async function listInventory(req: any, res: any) {
+  const result = await inventory.list();
+  res.json(result);
+}

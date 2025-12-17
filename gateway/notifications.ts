@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as notifications from "../notifications";
+import * as notifications from "../notifications/list";
 
-export const listNotifications = api(
-  { method: "GET", path: "/api/v1/notifications" },
-  async () => notifications.list()
-);
-// Add more notifications endpoints as needed
+// Proxy handler for listing notifications
+export async function listNotifications(req: any, res: any) {
+  const result = await notifications.list({});
+  res.json(result);
+}

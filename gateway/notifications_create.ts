@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as notifications from "../notifications";
+import * as notifications from "../notifications/create";
 
-export const createNotification = api(
-  { method: "POST", path: "/api/v1/notifications" },
-  async (req, ctx) => notifications.create(req, ctx)
-);
-// Add more notification endpoints as needed
+// Proxy handler for creating a notification
+export async function createNotification(req: any, res: any) {
+  const result = await notifications.create(req.body, {});
+  res.json(result);
+}

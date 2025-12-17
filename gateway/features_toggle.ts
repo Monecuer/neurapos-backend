@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as features from "../features";
+import * as features from "../features/toggle";
 
-export const toggleFeature = api(
-  { method: "POST", path: "/api/v1/features/toggle" },
-  async (req, ctx) => features.toggle(req, ctx)
-);
-// Add more feature endpoints as needed
+// Proxy handler for toggling a feature
+export async function toggleFeature(req: any, res: any) {
+  const result = await features.toggle(req.body, {});
+  res.json(result);
+}

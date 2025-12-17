@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as merchants from "../merchants";
+import * as merchants from "../merchants/create";
 
-export const createMerchant = api(
-  { method: "POST", path: "/api/v1/merchants" },
-  async (req, ctx) => merchants.create(req, ctx)
-);
-// Add more merchant endpoints as needed
+// Proxy handler for creating a merchant
+export async function createMerchant(req: any, res: any) {
+  const result = await merchants.create(req.body, {});
+  res.json(result);
+}

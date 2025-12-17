@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as features from "../features";
+import * as features from "../features/list";
 
-export const listFeatures = api(
-  { method: "GET", path: "/api/v1/features" },
-  async () => features.list()
-);
-// Add more features endpoints as needed
+// Proxy handler for listing features
+export async function listFeatures(req: any, res: any) {
+  const result = await features.list();
+  res.json(result);
+}

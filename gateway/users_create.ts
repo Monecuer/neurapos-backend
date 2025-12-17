@@ -1,8 +1,7 @@
-import { api } from "encore.dev/api";
-import * as users from "../users";
+import * as users from "../users/create";
 
-export const createUser = api(
-  { method: "POST", path: "/api/v1/users" },
-  async (req, ctx) => users.create(req, ctx)
-);
-// Add more user endpoints as needed
+// Proxy handler for creating a user
+export async function createUser(req: any, res: any) {
+  const result = await users.create(req.body, {});
+  res.json(result);
+}
